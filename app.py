@@ -24,8 +24,8 @@ def GenAI_result():
     genai.configure(api_key=api1)
     model=genai.GenerativeModel("gemini-1.5-flash")
     q = request.form.get("q")
-    r=model.generate_content(q)
-    r=r.candidates[0].content.parts[0].text
+    r = model.generate_content(q)
+    r = r.candidates[0].content.parts[0].text
     return(render_template("GenAI_result.html",r=r))#第一个r是从html读取的，第二个r是python的
 
 @app.route("/SA",methods=["GET","POST"])
